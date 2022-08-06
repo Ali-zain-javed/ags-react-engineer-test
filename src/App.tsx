@@ -1,9 +1,9 @@
-import { FC } from 'react';
+import React,{ FC } from 'react';
 import styled from 'styled-components';
 import Navbar from './components/Navbar';
 import GlobalStyle from './globalStyle';
 import Topbar from './components/Topbar';
-
+import Product from './components/Products';
 const Main = styled.main`
   display: grid;
   grid-template-columns: 80px 1fr;
@@ -21,6 +21,7 @@ const App: FC = () => {
         <Navbar />
         <article>
           <Topbar />
+          <Product />
         </article>
       </Main>
     </>
