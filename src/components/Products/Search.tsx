@@ -19,11 +19,21 @@ const InputDiv = styled.div`
       border-color: #6b4eff;
     }
   }
+  .noFound {
+    margintop: 20px;
+    min-width: 400px;
+    max-height: 150px;
+    min-height: 80px;
+    padding: 22px;
+    border-radius: 12px;
+    background-color: #f1f1f1;
+  }
 `;
 const Search: FC = () => {
   const [searchValue, setSearchValue] = useState();
   const dispatch = useDispatch();
   const products = useSelector((state: any) => state.Products.Products);
+  const filterType = useSelector((state: any) => state.Products.filterType);
   useEffect(
     () => {
       // Wait 1000ms before copying the value of tempValue into value;
@@ -47,6 +57,9 @@ const Search: FC = () => {
           setSearchValue(e.target.value);
         }}
       ></input>
+      {filterType == "3" && (
+        <div className="noFound">Not Match Found for '{searchValue}'</div>
+      )}
     </InputDiv>
   );
 };
